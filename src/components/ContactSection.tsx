@@ -28,6 +28,7 @@ const ContactSection = () => {
 
   return (
     <section 
+      id="contact"
       ref={ref as any}
       className={`py-20 bg-gradient-to-br from-soft-cream to-white relative overflow-hidden scroll-animate ${isVisible ? 'visible' : ''}`}
     >

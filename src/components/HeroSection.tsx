@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ArrowRight, Sparkles, Code, Database, Cloud } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const HeroSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-  const [currentCodeSnippet, setCurrentCodeSnippet] = useState(0);
-  
-  const codeSnippets = [
-    'const innovation = await transform(legacy);',
-    'function buildFuture() { return excellence; }',
-    'SELECT success FROM possibilities WHERE vision = true;',
-    'cloud.deploy(scalable.architecture);'
-  ];
 
   const floatingElements = [
     { icon: Code, delay: 0, position: 'top-1/4 left-1/4' },
@@ -21,21 +13,30 @@ const HeroSection = () => {
     { icon: Sparkles, delay: 6, position: 'bottom-1/4 right-1/3' },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCodeSnippet((prev) => (prev + 1) % codeSnippets.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section 
       ref={ref as any}
-      className={`relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-mesh scroll-animate ${isVisible ? 'visible' : ''}`}
+      className={`relative min-h-screen flex items-center justify-center overflow-hidden scroll-animate ${isVisible ? 'visible' : ''}`}
+      style={{
+        backgroundImage: 'url(/background.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
     >
+      {/* Background overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]"></div>
+
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 z-10">
         {Array.from({ length: 20 }).map((_, i) => (
           <div
             key={i}
@@ -54,7 +55,7 @@ const HeroSection = () => {
       {floatingElements.map(({ icon: Icon, delay, position }, index) => (
         <div
           key={index}
-          className={`absolute ${position} animate-float opacity-20`}
+          className={`absolute ${position} animate-float opacity-20 z-10`}
           style={{ animationDelay: `${delay}s` }}
         >
           <Icon className="h-12 w-12 text-warm-taupe" />
@@ -62,9 +63,9 @@ const HeroSection = () => {
       ))}
 
       {/* Main content */}
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left column - Main content */}
+      <div className="container mx-auto px-6 py-20 relative z-20">
+        <div className="max-w-4xl">
+          {/* Main content - left aligned */}
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-warm-taupe text-sm font-medium">
@@ -86,14 +87,12 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up animate-delay-800">
-              <Button className="btn-premium group text-lg px-8 py-4">
+              <Button className="btn-premium group text-lg px-8 py-4" onClick={scrollToContact}>
                 Start Your Transformation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               
-              <Button variant="outline" className="text-deep-navy bg-white/90 border-white hover:bg-white hover:text-deep-navy text-lg px-8 py-4">
-                View Our Work
-              </Button>
+              
             </div>
 
             {/* Stats */}
@@ -110,48 +109,11 @@ const HeroSection = () => {
               ))}
             </div>
           </div>
-
-          {/* Right column - Interactive code display */}
-          <div className="relative">
-            <div className="glass rounded-3xl p-8 backdrop-blur-xl animate-slide-in-right">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                <span className="text-white/60 text-sm ml-4">innovation.js</span>
-              </div>
-              
-              <div className="space-y-4 font-mono text-sm">
-                {codeSnippets.map((snippet, index) => (
-                  <div
-                    key={index}
-                    className={`transition-all duration-500 ${
-                      index === currentCodeSnippet
-                        ? 'text-warm-taupe opacity-100 scale-105'
-                        : 'text-white/40 opacity-50'
-                    }`}
-                  >
-                    <span className="text-white/40 mr-4">{String(index + 1).padStart(2, '0')}</span>
-                    {snippet}
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-6 flex items-center space-x-2">
-                <div className="w-2 h-2 bg-warm-taupe rounded-full animate-pulse"></div>
-                <span className="text-white/60 text-xs">Executing innovation...</span>
-              </div>
-            </div>
-
-            {/* Floating geometric shapes */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-warm-taupe/20 rounded-2xl rotate-12 animate-float"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-steel-blue/30 rounded-xl -rotate-12 animate-float" style={{ animationDelay: '2s' }}></div>
-          </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-warm-taupe rounded-full mt-2 animate-pulse"></div>
         </div>

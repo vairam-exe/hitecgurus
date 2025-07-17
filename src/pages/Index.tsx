@@ -3,7 +3,8 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
-import TechSection from '@/components/TechSection';
+import IndustriesSection from '@/components/IndustriesSection';
+import VisionSection from '@/components/TechSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -13,7 +14,8 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <ServicesSection />
-      <TechSection />
+      <IndustriesSection />
+      <VisionSection />
       <ContactSection />
       <Footer />
     </div>

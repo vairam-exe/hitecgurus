@@ -1,55 +1,130 @@
 
 import React, { useState } from 'react';
-import { Code2, Cloud, Database, Shield, Cpu, Zap, ArrowRight, Sparkles } from 'lucide-react';
+import { 
+  Code2, Cloud, Database, Shield, Cpu, Zap, ArrowRight, Sparkles,
+  Settings, Server, Globe, Smartphone, Monitor, HardDrive, 
+  RefreshCw, Lock, Workflow, CloudUpload, Building, TrendingUp,
+  Layers, Palette
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const ServicesSection = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const services = [
     {
-      icon: Code2,
-      title: 'Custom Software Development',
-      description: 'Bespoke solutions crafted with precision, scalability, and future-ready architecture.',
-      features: ['Microservices Architecture', 'API-First Design', 'CI/CD Pipelines'],
-      color: 'from-steel-blue to-deep-navy',
+      icon: Settings,
+      title: 'SAP Implementation',
+      description: 'Deploy SAP to streamline processes, enhance efficiency, train users, and ensure success.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
     },
     {
-      icon: Cloud,
-      title: 'Cloud Transformation',
-      description: 'Seamless migration and optimization for modern cloud-native applications.',
-      features: ['AWS/Azure/GCP', 'Kubernetes Orchestration', 'Auto-scaling Solutions'],
-      color: 'from-warm-taupe to-steel-blue',
+      icon: Building,
+      title: 'SAP Rollouts',
+      description: 'SAP rollouts standardize processes, ensure data consistency, and integrate operations across company locations.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: HardDrive,
+      title: 'SAP Support',
+      description: 'SAP Support ensures smooth operations, resolves issues, and optimizes system performance for businesses.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: RefreshCw,
+      title: 'SAP Migration',
+      description: 'SAP Migration moves systems and data to new environments, ensuring minimal business disruption.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Server,
+      title: 'SAP Application Management Services',
+      description: 'SAP AMS ensures reliable support, performance optimization, and seamless integration for evolving business needs.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Lock,
+      title: 'SAP Security Services',
+      description: 'SAP Security protects systems with access control, encryption, and audits, ensuring secure operations.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Workflow,
+      title: 'SAP Integration',
+      description: 'SAP Integration links systems for seamless data exchange, unified workflows, and real-time insights.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: CloudUpload,
+      title: 'SAP Migration to Cloud',
+      description: 'SAP Cloud Migration moves systems to the cloud for scalability, cost savings, and agility.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
     },
     {
       icon: Database,
-      title: 'Data Engineering',
-      description: 'Transform raw data into actionable insights with cutting-edge analytics.',
-      features: ['Real-time Processing', 'ML/AI Integration', 'Data Visualization'],
+      title: 'SAP S/4 HANA On premise',
+      description: 'SAP S/4HANA On-Premise offers full control, customization, and flexibility for compliance-focused businesses.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Cloud,
+      title: 'SAP S/4 HANA RISE with SAP',
+      description: 'SAP S/4HANA RISE offers a cloud-based transformation with services for modernizing and optimizing operations.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: TrendingUp,
+      title: 'SAP S/4 HANA Grow with SAP',
+      description: 'SAP S/4HANA Grow supports SMEs with scalable digital transformation and continuous growth.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Code2,
+      title: 'Custom Software',
+      description: 'Custom software delivers personalized features, enhancing efficiency, scalability, and user experience for unique business needs.',
+      color: 'from-steel-blue to-deep-navy',
+      hasViewMore: true,
+    },
+    {
+      icon: Layers,
+      title: 'Infrastructure Services',
+      description: 'Infrastructure Services ensure reliable, scalable, and secure IT operations through server management, cloud services, and security.',
+      color: 'from-warm-taupe to-steel-blue',
+      hasViewMore: true,
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile Development',
+      description: 'Mobile Development creates apps for smartphones and tablets, focusing on UX, performance, and seamless integration.',
       color: 'from-deep-navy to-warm-taupe',
+      hasViewMore: true,
     },
     {
-      icon: Shield,
-      title: 'Cybersecurity Solutions',
-      description: 'Comprehensive security frameworks to protect your digital assets.',
-      features: ['Zero Trust Architecture', 'Compliance Management', 'Threat Detection'],
+      icon: Globe,
+      title: 'Web Development',
+      description: 'Web Development creates and maintains websites, combining front-end and back-end for functionality and responsiveness.',
       color: 'from-steel-blue to-warm-taupe',
-    },
-    {
-      icon: Cpu,
-      title: 'Enterprise Architecture',
-      description: 'Strategic technology blueprints for sustainable digital transformation.',
-      features: ['System Integration', 'Legacy Modernization', 'Performance Optimization'],
-      color: 'from-warm-taupe to-deep-navy',
-    },
-    {
-      icon: Zap,
-      title: 'Digital Innovation',
-      description: 'Pioneering solutions that push the boundaries of what\'s possible.',
-      features: ['IoT Solutions', 'Blockchain Development', 'AR/VR Experiences'],
-      color: 'from-deep-navy to-steel-blue',
+      hasViewMore: true,
     },
   ];
 
@@ -71,7 +146,7 @@ const ServicesSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-warm-taupe/20 rounded-full text-steel-blue text-sm font-medium mb-6">
             <Sparkles className="mr-2 h-4 w-4" />
-            Our Expertise
+            Services We Offer
           </div>
           
           <h2 className="text-5xl lg:text-6xl font-clash font-bold text-deep-navy mb-6">
@@ -155,30 +230,22 @@ const ServicesSection = () => {
                     {service.description}
                   </p>
 
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-steel-blue/70">
-                        <div className="w-1.5 h-1.5 bg-warm-taupe rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <Button 
-                    variant="ghost" 
-                    className="group/btn text-steel-blue hover:text-deep-navy p-0 h-auto font-medium"
-                  >
-                    Learn More
-                    <ArrowRight 
-                      className="ml-2 h-4 w-4"
-                      style={{
-                        transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-                        transition: 'transform 0.3s ease-out'
-                      }}
-                    />
-                  </Button>
+                  {/* View More Button */}
+                  {service.hasViewMore && (
+                    <Button 
+                      variant="ghost" 
+                      className="group/btn text-steel-blue hover:text-deep-navy p-0 h-auto font-medium"
+                    >
+                      View More
+                      <ArrowRight 
+                        className="ml-2 h-4 w-4"
+                        style={{
+                          transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
+                          transition: 'transform 0.3s ease-out'
+                        }}
+                      />
+                    </Button>
+                  )}
                 </div>
 
                 {/* Optimized decorative elements */}
@@ -206,7 +273,7 @@ const ServicesSection = () => {
           <p className="text-steel-blue/80 mb-8 text-lg">
             Ready to transform your business with cutting-edge technology?
           </p>
-          <Button className="btn-premium group text-lg px-8 py-4">
+          <Button className="btn-premium group text-lg px-8 py-4" onClick={scrollToContact}>
             Start Your Project
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
           </Button>

@@ -9,30 +9,28 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
+    'SAP Implementation',
+    'SAP S/4 HANA Solutions',
+    'SAP Migration & Support',
+    'SAP Integration Services',
     'Custom Software Development',
-    'Cloud Transformation',
-    'Data Engineering',
-    'Cybersecurity Solutions',
-    'Enterprise Architecture',
-    'Digital Innovation'
+    'Mobile & Web Development'
+  ];
+
+  const industries = [
+    'Fashion & Retail',
+    'FMCG',
+    'E-Commerce',
+    'Manufacturing',
+    'Pharmaceutical',
+    'Automotive'
   ];
 
   const company = [
-    'About Us',
-    'Our Team',
-    'Careers',
-    'Case Studies',
-    'Blog',
+    'Services',
+    'Industries',
+    'Vision',
     'Contact'
-  ];
-
-  const resources = [
-    'Documentation',
-    'API Reference',
-    'Support Center',
-    'Status Page',
-    'Security',
-    'Privacy Policy'
   ];
 
   return (
@@ -69,44 +67,26 @@ const Footer = () => {
               </div>
               
               <p className="text-white/70 mb-8 text-lg leading-relaxed">
-                Transforming businesses through cutting-edge technology solutions. 
-                We craft sophisticated software architectures that propel enterprises 
-                into the digital future with our comprehensive digital transformation services.
+                Transforming businesses through cutting-edge SAP solutions and 
+                custom software development. We specialize in digital transformation 
+                across multiple industries with deep expertise in SAP technologies.
               </p>
 
-              {/* Contact info */}
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3 text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                  <Mail className="h-5 w-5" />
-                  <span>hello@hitechgurus.com</span>
-                </div>
-                <div className="flex items-center space-x-3 text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                  <Phone className="h-5 w-5" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-3 text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                  <MapPin className="h-5 w-5" />
-                  <span>San Francisco, CA</span>
-                </div>
-              </div>
-
-              {/* Social links */}
-              <div className="flex space-x-4 mt-8">
-                {[
-                  { icon: Github, href: '#', label: 'GitHub' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-                  { icon: Twitter, href: '#', label: 'Twitter' },
-                ].map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center 
-                             hover:bg-warm-taupe hover:scale-110 transition-all duration-300 group"
-                    aria-label={label}
-                  >
-                    <Icon className="h-5 w-5 text-white group-hover:text-deep-navy" />
-                  </a>
-                ))}
+              {/* Contact CTA */}
+              <div className="mb-8">
+                <p className="text-white/70 mb-4">Ready to start your digital transformation?</p>
+                <Button 
+                  className="bg-warm-taupe hover:bg-warm-taupe/90 text-deep-navy font-medium"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
 
@@ -117,7 +97,7 @@ const Footer = () => {
                 {services.map((service) => (
                   <li key={service}>
                     <a 
-                      href="#" 
+                      href="#services" 
                       className="text-white/70 hover:text-white transition-colors duration-300 
                                flex items-center group"
                     >
@@ -131,6 +111,27 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* Industries */}
+            <div>
+              <h3 className="text-lg font-clash font-bold text-warm-taupe mb-6">Industries</h3>
+              <ul className="space-y-3">
+                {industries.map((industry) => (
+                  <li key={industry}>
+                    <a 
+                      href="#industries" 
+                      className="text-white/70 hover:text-white transition-colors duration-300 
+                               flex items-center group"
+                    >
+                      <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 
+                                           -translate-x-2 group-hover:translate-x-0 
+                                           transition-all duration-300" />
+                      {industry}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
             {/* Company */}
             <div>
               <h3 className="text-lg font-clash font-bold text-warm-taupe mb-6">Company</h3>
@@ -138,7 +139,7 @@ const Footer = () => {
                 {company.map((item) => (
                   <li key={item}>
                     <a 
-                      href="#" 
+                      href={`#${item.toLowerCase()}`} 
                       className="text-white/70 hover:text-white transition-colors duration-300 
                                flex items-center group"
                     >
@@ -146,27 +147,6 @@ const Footer = () => {
                                            -translate-x-2 group-hover:translate-x-0 
                                            transition-all duration-300" />
                       {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Resources */}
-            <div>
-              <h3 className="text-lg font-clash font-bold text-warm-taupe mb-6">Resources</h3>
-              <ul className="space-y-3">
-                {resources.map((resource) => (
-                  <li key={resource}>
-                    <a 
-                      href="#" 
-                      className="text-white/70 hover:text-white transition-colors duration-300 
-                               flex items-center group"
-                    >
-                      <ArrowRight className="h-4 w-4 mr-2 opacity-0 group-hover:opacity-100 
-                                           -translate-x-2 group-hover:translate-x-0 
-                                           transition-all duration-300" />
-                      {resource}
                     </a>
                   </li>
                 ))}
@@ -182,16 +162,8 @@ const Footer = () => {
               © {currentYear} HITECGURUS. All rights reserved.
             </div>
             
-            <div className="flex space-x-8 text-sm">
-              <a href="#" className="text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-white/70 hover:text-warm-taupe transition-colors duration-300">
-                Cookie Policy
-              </a>
+            <div className="text-white/70 text-sm">
+              Your digital transformation partner
             </div>
           </div>
         </div>

@@ -7,6 +7,13 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -19,7 +26,6 @@ const Navigation = () => {
   const navItems = [
     { name: 'Services', href: '#services' },
     { name: 'Technologies', href: '#tech' },
-    { name: 'Case Studies', href: '#cases' },
     { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -75,7 +81,7 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="btn-premium group">
+            <Button className="btn-premium group" onClick={scrollToContact}>
               Get Started
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
@@ -108,7 +114,7 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <Button className="w-full mt-4 btn-premium">
+            <Button className="w-full mt-4 btn-premium" onClick={scrollToContact}>
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
