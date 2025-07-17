@@ -22,6 +22,27 @@ const ServicesSection = () => {
 
   const services = [
     {
+      icon: Cloud,
+      title: 'SAP S/4 HANA RISE with SAP',
+      description: 'SAP S/4HANA RISE offers a cloud-based transformation with services for modernizing and optimizing operations.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: TrendingUp,
+      title: 'SAP S/4 HANA Grow with SAP',
+      description: 'SAP S/4HANA Grow supports SMEs with scalable digital transformation and continuous growth.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
+      icon: Database,
+      title: 'SAP S/4 HANA On premise',
+      description: 'SAP S/4HANA On-Premise offers full control, customization, and flexibility for compliance-focused businesses.',
+      color: 'from-blue-600 to-blue-800',
+      hasViewMore: true,
+    },
+    {
       icon: Settings,
       title: 'SAP Implementation',
       description: 'Deploy SAP to streamline processes, enhance efficiency, train users, and ensure success.',
@@ -78,27 +99,6 @@ const ServicesSection = () => {
       hasViewMore: true,
     },
     {
-      icon: Database,
-      title: 'SAP S/4 HANA On premise',
-      description: 'SAP S/4HANA On-Premise offers full control, customization, and flexibility for compliance-focused businesses.',
-      color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
-    },
-    {
-      icon: Cloud,
-      title: 'SAP S/4 HANA RISE with SAP',
-      description: 'SAP S/4HANA RISE offers a cloud-based transformation with services for modernizing and optimizing operations.',
-      color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
-    },
-    {
-      icon: TrendingUp,
-      title: 'SAP S/4 HANA Grow with SAP',
-      description: 'SAP S/4HANA Grow supports SMEs with scalable digital transformation and continuous growth.',
-      color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
-    },
-    {
       icon: Code2,
       title: 'Custom Software',
       description: 'Custom software delivers personalized features, enhancing efficiency, scalability, and user experience for unique business needs.',
@@ -149,9 +149,9 @@ const ServicesSection = () => {
             Services We Offer
           </div>
           
-          <h2 className="text-5xl lg:text-6xl font-clash font-bold text-deep-navy mb-6">
+          <h2 className="text-5xl lg:text-6xl font-clash font-bold text-deep-navy mb-8 leading-normal">
             Comprehensive
-            <span className="block gradient-text">Technology Services</span>
+            <span className="block gradient-text leading-normal">Technology Services</span>
           </h2>
           
           <p className="text-xl text-steel-blue/80 max-w-3xl mx-auto">
@@ -226,26 +226,9 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-steel-blue/80 mb-6 leading-relaxed">
+                  <p className="text-steel-blue/80 leading-relaxed">
                     {service.description}
                   </p>
-
-                  {/* View More Button */}
-                  {service.hasViewMore && (
-                    <Button 
-                      variant="ghost" 
-                      className="group/btn text-steel-blue hover:text-deep-navy p-0 h-auto font-medium"
-                    >
-                      View More
-                      <ArrowRight 
-                        className="ml-2 h-4 w-4"
-                        style={{
-                          transform: isHovered ? 'translateX(4px)' : 'translateX(0)',
-                          transition: 'transform 0.3s ease-out'
-                        }}
-                      />
-                    </Button>
-                  )}
                 </div>
 
                 {/* Optimized decorative elements */}

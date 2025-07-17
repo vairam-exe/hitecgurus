@@ -22,56 +22,56 @@ const IndustriesSection = () => {
       title: 'Fashion & Retail',
       description: 'The pace of change across retail is dramatic, we have expertise and ability to quickly develop and deploy solution that guarantee commercial success.',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/2.png', // FMCG industry image
       title: 'FMCG',
       description: 'FMCG industry remains resilient and continues to flourish and facing significant warehousing challenges. We\'re ready with right solution to',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/3.png', // 3PL industry image
       title: '3PL',
       description: '3PL partners are becoming more mainstream in today\'s world. We have expertise in B2B SAP Business ByDesign\'s 3PL',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/4.png', // E-Commerce industry image
       title: 'E-Commerce',
       description: 'Industry is facing many challenges in the ever-growing world of e-commerce. Our expertise solution ensures complete integration',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/5.png', // Manufacturing industry image
       title: 'Manufacturing',
       description: 'Successful Manufacturing thrives on efficient processes. Being future-proof is the key success factor.',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/6.png', // Pharmaceutical industry image
       title: 'Pharmaceutical',
       description: 'Pharmaceutical sector can be mapped more clearly and reliably in SAP EWM with our extensive experience',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/7.png', // Automotive industry image
       title: 'Automotive',
       description: 'SAP EWM leverages Automated Guided Vehicles (AGVs) and Automated Storage and Retrieval Systems (AS/RS)',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
     {
       image: '/8.png', // Food & Beverage industry image
       title: 'Food & Beverage',
       description: 'SAP EWM is a powerful warehouse management system that helps food and beverage businesses increase',
       color: 'from-blue-600 to-blue-800',
-      hasViewMore: true,
+      
     },
   ];
 
