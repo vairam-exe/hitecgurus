@@ -73,7 +73,7 @@ const HeroSection = () => {
                 Transforming Digital Futures
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-clash font-bold text-white leading-tight">
+              <h1 className="text-5xl lg:text-7xl font-clash font-bold text-white leading-normal">
                 <span className="block animate-slide-up">Premium</span>
                 <span className="block animate-slide-up animate-delay-200 gradient-text">Technology</span>
                 <span className="block animate-slide-up animate-delay-400">Solutions</span>

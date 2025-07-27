@@ -164,6 +164,7 @@ All colors MUST be HSL.
   /* Gradient text */
   .gradient-text {
     @apply bg-gradient-to-r from-steel-blue to-warm-taupe bg-clip-text text-transparent;
+    padding-bottom: 0.1em; /* Prevent descender clipping */
   }
 
   /* Card hover effects */
