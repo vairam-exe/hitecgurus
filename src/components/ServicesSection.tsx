@@ -65,7 +65,7 @@ const ServicesSection = () => {
     },
     {
       icon: RefreshCw,
-      title: 'SAP Migration',
+      title: 'SAP & S4HANA Migration',
       description: 'SAP Migration moves systems and data to new environments, ensuring minimal business disruption.',
       color: 'from-blue-600 to-blue-800',
       hasViewMore: true,

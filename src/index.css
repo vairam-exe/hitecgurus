@@ -144,7 +144,8 @@ All colors MUST be HSL.
 
   /* Premium button styles */
   .btn-premium {
-    @apply relative overflow-hidden bg-gradient-to-r from-steel-blue to-deep-navy text-white px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    @apply relative overflow-hidden bg-gradient-to-r from-steel-blue to-deep-navy px-8 py-4 rounded-2xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-xl;
+    color: white !important;
   }
 
   .btn-premium::before {

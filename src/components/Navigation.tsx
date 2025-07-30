@@ -29,6 +29,9 @@ const Navigation = () => {
     { name: 'Vision', href: '#vision' },
     { name: 'Contact', href: '#contact' },
   ];
+  const scrollToTop = () => {
+    window.scrollTo({ top:0, behavior: 'smooth'});
+  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -39,7 +42,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3 group cursor-pointer">
+          <div className="flex items-center space-x-3 group cursor-pointer" onClick={scrollToTop}>
             <div className="relative">
               <img 
                 src="/logo.png" 
